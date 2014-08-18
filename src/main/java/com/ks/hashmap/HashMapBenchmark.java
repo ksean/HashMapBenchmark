@@ -14,8 +14,9 @@ import com.ks.hashmap.basic.*;
 @State(Scope.Thread)
 public class HashMapBenchmark {
 
+    private final int LENGTH = 10000;
     private HashFunction basicHashFunction = new BasicHashFunction();
-    private com.ks.hashmap.HashMap<String, Long> basicHashMap = new BasicHashMap<>(basicHashFunction, 1000000);
+    private com.ks.hashmap.HashMap<String, Long> basicHashMap = new BasicHashMap<>(basicHashFunction, LENGTH);
     private HashMap<String, Long> hashMap = new HashMap<>();
     private long key;
 
@@ -23,9 +24,9 @@ public class HashMapBenchmark {
     public void setup(){
         key = 0;
 
-        for (long i = 0; i < 1000000; i++) {
+        for (long i = 0; i < LENGTH; i++) {
             hashMap.put(String.valueOf(i), i);
-//            basicHashMap.put(String.valueOf(i), i);
+            basicHashMap.put(String.valueOf(i), i);
         }
     }
 
@@ -33,9 +34,9 @@ public class HashMapBenchmark {
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
     @OutputTimeUnit(TimeUnit.NANOSECONDS)
-    public long primativeHashMapGetExistingKeys() throws InterruptedException{
+    public long collectionsHashMapGetExistingKeys() throws InterruptedException{
 
-        if (key >= 1000000) {
+        if (key >= LENGTH) {
             key = 0;
         }
 
@@ -47,7 +48,7 @@ public class HashMapBenchmark {
     @OutputTimeUnit(TimeUnit.NANOSECONDS)
     public long basicHashMapGetExistingKeys() throws InterruptedException{
 
-        if(key >= 1000000) {
+        if(key >= LENGTH) {
             key = 0;
         }
 
