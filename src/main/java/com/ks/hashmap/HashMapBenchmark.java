@@ -16,7 +16,7 @@ public class HashMapBenchmark {
 
     private final int LENGTH = 10000;
     private HashFunction basicHashFunction = new BasicHashFunction();
-    private com.ks.hashmap.HashMap<String, Long> basicHashMap = new BasicHashMap<>(basicHashFunction, LENGTH);
+    private com.ks.hashmap.HashMap<String, Long> basicHashMap = new BasicHashMap<>(basicHashFunction);
     private HashMap<String, Long> hashMap = new HashMap<>();
     private long key;
 

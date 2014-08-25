@@ -57,6 +57,13 @@ questions.
             <scope>system</scope>
             <systemPath>${basedir}/libs/HashMap-${hashmap.version}.jar</systemPath>
         </dependency>
+        <dependency>
+            <groupId>com.ks</groupId>
+            <artifactId>sort</artifactId>
+            <version>${sort.version}</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/libs/SortingAlgorithm-${hashmap.version}.jar</systemPath>
+        </dependency>
     </dependencies>
 
     <properties>
@@ -64,6 +71,7 @@ questions.
         <jmh.version>0.9.5</jmh.version>
         <javac.target>1.8</javac.target>
         <hashmap.version>0.0.1-SNAPSHOT</hashmap.version>
+        <sort.version>0.0.1-SNAPSHOT</sort.version>
         <uberjar.name>benchmarks</uberjar.name>
     </properties>
 
